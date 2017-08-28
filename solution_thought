@@ -1,0 +1,52 @@
+021:
+053: Maximum Subarray
+    start, end, max, curSum; i=0~len-1; 如果curSum+arr[i]>max, end = i,
+    如果surSum+arr[i]<0; start = end = i+1, curSum = 0;
+    https://leetcode.com/problems/maximum-subarray/discuss/
+066 Plus One :
+    從最後一個位置加一, 把carry往前帶到location = 0為止, 如果carry>0, 新增一個array, location 0 為carry, 剩下的copy原array
+070 Climbing Stairs:
+    f(1):1, f(2): 2, f(n): f(n-1)+f(n-2);
+088 Merge Sorted Array
+    a[], b[],
+    i=aLen, j=bLen; if(a[i-1]>b[j-1]) a[aLen+bLen-1] = a[i-1], i--; else a[aLen+bLen-1] = b[i-1], j--;
+112	Path Sum :
+    從root開始, 如果當前是leaf而且target = 0, return true,
+    不然return (root.left, target-val) && (root.right, target-val)
+113 Path Sum II:
+    similar to 112, but we track current path.
+    If current sum is 0 and current node is leaf, we add current list into lists
+118 Pascal's Triangle
+    cur arr = list.lastArray,
+    create new array, add 1, for i = 1~len-2, add (last element +arr[i]), add arr[len-1], put into list
+198 House Robber:
+    // at location i, max profit is max(n[i-1], n[i]+n[i-2], n[i]+n[i-3]);
+205	Isomorphic Strings :
+    first check lengths of 2 strings. keep a hashmap of 1:1 mapping. If 2 characters in string s1, s1 not same as the mapping in hashmap, then return false.
+213 House Robber II
+    similar to 198, but two cases, rob house 0~n-1 or rob house 1 to n
+234 Palindrome Linked List
+    2 pointers, a stops at mid when the b reaches end;
+    reverse a using o(n/2), compare a and original list 0~n/2 nodes using o(n/2)
+326 Power of Three
+    如果x =power(3,k), if(n==x) true; if(n<x) return false; x++;
+337 House Robber III
+    每個node, 回傳int[2]包含[curMaxProfit(dontRobCurrent, cur+dontRobPrecious), dontRobCurrent]
+437  Path Sum III
+    對於每個點. 檢查
+    1. 當前的sum加上此點值是否為target, 如果是的話加到list, 繼續call他的左右節點
+    2. 新增一個list並放入此點, 此點值是否為target, 如果是的話加到list, 繼續call他的左右節點
+483 Find All Anagrams in a String
+    1. construct a map from p
+    2. for each substring of a from (0~sLength-pLength-1), check if it's anagram
+507 Perfect Number：
+    將sum=1, i = 2~sqrt(n), if(n%i==0) {sum+=i+(n/i==0?:0:n/i)}
+
+Array
+    System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
+    Arrays.copyOfRange(original, from, to) / Arrays.copyof(original, length)
+
+String :
+    String.indexOf()
+    String.substring(from, to)
+    String.length()

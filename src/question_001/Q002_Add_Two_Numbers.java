@@ -1,5 +1,8 @@
 package question_001;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Q002_Add_Two_Numbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         if(l1 == null) return l2;
@@ -20,5 +23,11 @@ public class Q002_Add_Two_Numbers {
         pre.next = carry > 0 ? new ListNode(carry) : null;
 
         return indexHolder.next;
+    }
+    public static void main(String[] args){
+        Map<Character, Integer> map = new HashMap<>();
+        map.put('s', 2);
+//        map.se
+        System.out.println(map);
     }
 }

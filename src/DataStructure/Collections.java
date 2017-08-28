@@ -24,7 +24,8 @@ public class Collections {
 //        for(Map.Entry<Integer, Integer> s:map1.entrySet()){
 //
 //        }
-        map1.mer
+//        map1.mer
+
         // compute computeIfAbsent computeIfPresent
         // merge
         // get getOrDefault(k, v) replace(k, v) replaceAll()
