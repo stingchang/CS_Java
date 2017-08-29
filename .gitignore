@@ -24,3 +24,6 @@ hs_err_pid*
 .idea/
 CS_Java.iml
 src/Test.java
+
+# Interview Questions #
+/Interview Q/*

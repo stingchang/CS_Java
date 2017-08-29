@@ -1,0 +1,156 @@
+Houzz Interview Questions
+
+	第一题给一个字符串的list，输出其中有anagram的字符串。类似leetcode 49，很快最好一遍编译过
+		Ans: lc_49
+	第二题给一个数，输出分解质因数的结果，例如输入90，输出2*3*3*5，输入17输出17
+		Ans: lc_204 + forEach Prime, append it till num%p!=0
+
+	1. 說明 get 和 post
+		Ans: get: 1.has length limitation, 2.append params on url instead of request body, 3.use get when not trying to chage data on back end 4. ASCII only, post can have others like binary
+	2. 說明 index, 並說明何時會用多個欄位組成index而不是單一欄位
+		http://www.programmerinterview.com/index.php/database-sql/what-is-an-index/
+		index: 儲存column data的資料結構, 幫助加速查詢（刪除,新增...）; 常見b-tree, 可用hashtable, r-tree
+***	3. 給income 跟一個 taxTable, 實現 calculatorTax() 返回 tax 多少? taxTable 如下: income | rate <10k | 5% 10k-100k| 10% >100k | 20%
+
+	HTTP status
+		1XX - informational
+		2XX - success
+		3XX - redirection
+		4XX - client error
+		5XX - server error
+	HTTP methods
+		get post head put delete options connect
+
+流兰琪里面输入google.com发生了什么，地里有的经典题。
+	https://github.com/skyline75489/what-happens-when-zh_CN
+	https://www.zhihu.com/question/34873227
+	http://www.guokr.com/question/554991/
+
+	interface 可不可以作为参数传入一个方法。我回答可以，然后举了个🌰 Linkedlist vs Arraylist，
+***	什么时候用 Shell command，有个log文件，你想把里面所有“error”开头的line找出来放到另一个file里面，用什么指令，grab。
+
+实现一个calendar的addday方法，本想talk loud但发现这题不是那么简单，磕磕巴巴写了出来居然run对了，也是激动！
+
+1. Remove any number containing 9 like 9, 19, 29, ... 91, 92, ... 99, 109... Write a function that returns the nth number. E.g. newNumber(1) = 1 newNumber(8) = 8, newNumber(9) = 10, 最后给了hint把数变成9-based
+	https://www.careercup.com/question?id=5729483920244736
+2. kSum.... expect better runtime than backtracking... Consider 3sum's backtracking complexity is worse than n^2, which use's two sum's two pointer approach.
+3. Design Excel. Implement int get(string cell) void put(string cell, string expr). expr can be "A1= B1+1". 这题的关键在于，要解决各个cell的dependence问题. 比如说call put(B1, "3")之后，同时也要update A1的值。会牵扯到topo sort的问题。总之这题是design题，就看你有没有意识到这种dependence。
+4. Design Intagram
+5. Android lock pattern from leetcode.
+https://instant.1point3acres.com/thread/196589
+
+如何评估coupon发放效果的好坏，开放式问题
+
+两个Table需要Left Join，Group By，Order By，Sum等等
+
+
+给一串string，里面有数字, return 最大的top k 个数字，比如k = 3： input = “dfsfs980sdf123poier110poipoikkj-10” output = [980, 123, 110] **注意：可以有负数，如果是负数，数字前面那个字符 ‘ - ’ 为负号~
+
+phone: 1. merge k sorted arrays 2. Design Twitter 电面问我 design 也是醉了，幸好早上刚刚在复习 sys design 看到了这题。。。乱扯了一通 这家公司的面试风格感觉都是 hard 题，第一轮电面就问了我 find median of two sorted array, Onsite 我现在看到的面经也都是以 Hard 居多以及各种 system design
+
+http get，post区别，session如何储存，js
+如何handle event，最后一题设计数据库各种表,设计数据库存储houzz用户的idea book，里面可以放照片，然后问要建哪
+: 些表，表里的column都是什么，最后写的query，好像是取出两个用户共有的照片，记
+: 不清了，反正是用个join就行了。
+
+檢查一個graph是不是bipartite->bfs
+unfair coin, design a process to return equal of 1 and 0
+
+1. find max number of points in one line + 系统设计（设计一个topic ranking 系统）
+2. design calendar class 有 day year month 实现 add (days) return calendar(多人面)
+3. 有向有环图中 找source 到 target 的距离为n的可能性
+4. wordbreak 2 (follow up : NLP problems)
+
+onsite
+第一轮，第一题是Given a DAG, a source, a target, and number n, 找出从source到target的长度为n的路径的个数。第二题是given a undirectd and acyclic graph, 一个source和一个target，找出source到target的最长path。第二轮，开始聊了很久的project，最后出了一个道题给一个Calendar class（有三个field，year，month，day）和一个数N，实现一个函数，返回N天之后的calendar，譬如说输入是{2017， 3，20}和12， 那么返回的是{2017，4， 1} 第三轮，设计一个distributed key value store，然后是写代码merge n sorted array
+
+java的基本知识, 比如interface和 abstract class的区别Coding 部分让实现一个singleton设计模式Next permutation第二轮Java 里面 如何自己实现equalsmethodCoding 部分让实现一个singleton设计模式Word break
+
+max rectangle 输出其坐标。。code很快就写完了 出了个小于号小于号的愚蠢的bug调试了半天。
+
+經典題目 what happen when you go to www.houzz.com, 把全部的流程都講了很細，拖了很多時間 1. check browser chche, then OS host file to find if IP was visited, if not, go to DNS to get the IP; 2. request get to the correct IP, could be a web/app server, or a Load Balancer and forward you to the web server (LB又可以瞎扯一堆) 3. request go through LB, app server to backend, DB … 4. server reply back with 200 OK, and some HTTP contents 5. based on the HTTP contents your browser would build up a DOM tree, and get the static contents from CDN, and send other HTTP requests to the server. 6. there could be some AJAX requests as well. 接著問一些細節，如何實現Ajax, 如何實現session (cookies). session存在HTTP request哪裡 (header) 第二題問ArrayList v.s. LinkedList, Set v.s. List, 舉幾個實作Set & List的類 (HashSet, LinkedList, ArrayList) 第三題考ＬＣ上面的Text Justification. 寫完自己舉例一些範例，立刻跑答案都對，問一些edge cases, i.e. word length > max length
+
+基本数据结构，LZ被问到了TreeMap和HashMap的比较，另外还有基本的SQL query （如 select count distinct），http、tcp等等
+
+输入“rft567.908kih000000hh890jug678gtff567”这样包含字母和数字的字符串，找到出线次数最多的数字，print “567 shows two time”
+
+斐波那契数列，recursive & iterative各写一遍，问了时间空间复杂度，又做了优化到最优解。然后第二题是edit distance
+
+1. sql里的join是怎么实现的 2. http request get 和 post的区别 3. 当在浏览器输入网址时发生了什么 4. 求data stream最后k个输入的平均值 5. 在一个matrix里从左上角到右下角的路径，开始的问题是只能往右往下走，dp解。后来follow up是四个方向都可以走，dfs解。
+
+第一题经典题，一堆不同面值的硬币，一个target，找到最少硬币数，求和等于target。（用dp做，2个for loop就行了） 第二题，给一个序列的定义 n（奇数）：3n＋1 n（偶数）：n/2 每个数都能到1，比如：5->16->8->4->2->1, 长度为5。 找到1-1000中序列最长为多少。 houzz给的链接里，用recursive写会爆栈，iterative的话可以用for loop，每次循环把路径存在stack中，每个数对应的序列长度保存在map中。 （不知道为什么面试时run的时候结果总是不对，面完了自己测试的时候，一下子就通过了，
+
+题目是有一个integer stream, 不知道到底多少个，然后输出随机 k 个sample。要求每个元素sample 到的概率完全一样。内存不能用太多并且和performance 要好，我好像在地里看到过这题，但是感觉不是常规的那种算法题就没有细看。reservoir sampling, leetcode这个tag下面有类型题目
+（http://www.geeksforgeeks.org/reservoir-sampling/）
+
+点击url后发生了什么（前端后端，雅虎intern的时候问过不过记得不太清楚了），java的polymophism，比如hashing是怎么操作的，treeset啥的好多。大多数都说的差不多但是都没脱口而出，还是自己知识点掌握不稳固吧。3.算法面了很简单，之前面经有，就是找到string里面最大的数字，
+
+问了两道很简单的题：1. group anagrams, 2. prime factors. given a number return the prime factor multiplication. eg. 90 = 2 * 3 * 3 * 5.
+
+输入hashtable{"a"=>50, "b"=>25, "c"=25}, 要求每次call这个function，print概率按照输入hashtable里面概率. 所以有50%的概率print a, 25% b, 25% c。理解题意花了好久。 把所有数字加起来normalize然后用CDF来做
+
+1 原题 Maximum Rectangle，需要给用到stack的那个解法 2 Design tiny url
+
+第一道题是coding，把一个字符串转化成浮点数， e.g. "123.456" -> 123.456 e.g. "+.34" -> 0.34 e.g. "-1.234" -> -1.234 输入不保证是valid，如果不valid，throw exception即可 第二道题大致是个设计题，系统向后台写record，统计过去24小时的records中内出现次数前五的词。 follow up是如果我在写日志的时候，为了减少每条日志的大小，不写timestamp，怎么获得同样的答案，可以有误差。
+
+第一轮： 在Google做了十几年的白人 1. LC 65 Valid Number 2. 设计题，要求返回twitter在过去24小时里最popular的10个单词（任何string），问的非常详细
+第二轮： LC 85 Maximal Rectangle，一个变化是要求最后返回一个maximal rectangle的identifier。这个面试官说的很模糊，只要返回的东西能准确定位到这个最大矩形即可。 思路说了很久不过华人小哥不是很responsive, 写code的时候他还质疑了很久java里面能不能声明List[]这样的type...
+
+1. 解释输入amazon.com按下回车后发生的一系列事 2. String encode/decode 3. find min value in a rotated sorted array
+
+一道coding，挺简单的，input是一个String list，输出是一个list，找出原list里面出现过至少2次以上的anagram，hashmap+sort搞定，很快就写完了，他家的coding在coderpad，可以编译运行。面试官是做backend的，所以后面问了很多backend server的知识
+
+tech phone interview 1: 跟这个面经一样：简单的dp＋中等的cache问题 注意第二题我面试官人特别好，提醒了我不要试图去想rule，去走捷径，就是brute force，然后考你会不会基本的cache
+
+1. print out time string：也就是打印出“12AM 1AM 2AM… 11AM 12PM 1PM… 11PM” 这题面试官说就是热身 基本就是看看我是不是真的会编程… 2. 给一个query （array of floats），给一个dictionary，key是string，value是array of floats， 找最接近query的那组value所对应的key。 接近的程度是由Euclidean distance定义的 这道题有点像machine learning里的概念？ array of floats有固定的column数量，也就是固定size。 这题我先brute force了，然后面试官提醒可以用kd-tree解，挺有意思的题…
+
+offline render的多种方法之间的advantage/disadvantage 想render一个全是水晶灯的房间用什么最好 glsl shader stages 如何设计一个用户设计房间布局摆家具的realtime软件（参考sims模拟人生游戏里面的建筑模式），涉及了一些intersection问题，数据结构怎么储存，怎么accelerate
+
+跟 LC 上面 walls and gates 很像，但是有一个agent （起点）和 several goals (终点) 问能不能从一个起点到达所有终点。 矩阵类似这样： 0 0 0 1 1 1 A 1 0 1 G 1 1 0 G 0 1 1 1 0 0 1 0 1
+
+1. 2 integer differnce 二进制表示方式的差异
+2. sort colors
+3. database design table的design 和query
+4. java basics
+
+2sum，3sum和unique binary tree还问了一些web的问题。coding没问题，web有一个答的不好
+
+算法两道： 1. Calculate the distance of bits between two integers. For example: 1 -> 01; 2 -> 10; dist = 2; 2. Fibonacci, recursive + non recursive; 然后都问了下时间空间复杂度。 其他内容： HashMap vs HashTable; Design Database tabe; 简历随意走了一下; HTTP Request: GET vs. POST vs. PUT，能不能互相换着用。 Java vs JavaScript. 以及各自如何实现OOP。
+
+1. 完全背包， 刚开始理解成了01背包，后来发现他想要完全背包， 反正两种都写了 knapsack problem
+2. 水题， implement queue using stack
+3. html 琐碎问题， http 琐碎问题， database 琐碎问题
+
+第一道是group anagram的变形，要求输出按输入顺序输出。第二道题之前没见过，要打印一个数成它prime相乘的结果，例如12 = 2^2*3.都写出来了
+
+1. two sum， 只要返回任意一个组合就行，还是排好序无重复的那种，瞬秒。 2. three sum，我说先挑一个数字然后再用2sum，他说不错，还能不能更快，要我写个nlogn的写法， lz当时也是懵逼了。他提示说我能不能用binary search的思路去找后面两个sum
+第一题是判断两个矩形是否相交。lz很2的在想如何靠矩形对角两个点的关系判断，还漏了两种情况，代码也很丑。。后来一看好像lc里面有个easy题和这个类似的。。lz还做过。。
+
+店面中的一道题， convert string 成数字，比如"123.45", 返回123.45, "123.4ts5", 返回error，"-123.45",返回 -123.45. 感觉真的很难cover所有的cases啊(leetocode 65)
+
+第一轮:	1.validate BST	2.Unique BST I/II	3.Count number of 3 given n (E.x: given 30, return 4 {3,13, 23, 30})第二轮:	1.设计github.	画出server端architecture.问了每部分的功能和常用实现框架. DB的选取, table design+SQL, index优化	2.Http协议in detail, what happened after you typing github.com第三轮:	1.find local minimum in an array given A>A && A>A. 2.Regular Expression Matching第四轮:	1. Deep Iterator	2. 几种Map实现类的比较(Java)	3. Singleton的实现和应用场景
+
+题就一道: 设计一个service: class QueryCounterService { void addCount(String query) { // add query count + 1 } int getCount(String query) { // return current query count } List getTopKFrequentQueries(int k) { // get current top most frequent k queries sorted by the counter } } lz说了O(1), O(1), O(n) 和O(logn), O(logn), O(logn)两种方法，小哥说好，有没有更快的，要求O(1), O(1), O(k). lz吃了一惊, O(k)的实在想不出，期间祭出了quickselect求topk, 这也要O(n)吧，后来小哥看我支支吾吾想不出来了, 干脆给了个提示: 每次插的时候和前一个比较，如果frequency大的话就前后互换, 否则不动。lz想了一下感觉行，小哥说用什么数据结构实现，lz说map还是要的，在来个数组存query的位置，不过数组不能随意扩展，后来终于想到了linkedList, 真是蠢哭了。。。最后这题其实就是一个Map+linkedList的结构(类似LRU cache), 多亏了小哥一直耐心给hint, 不然真心想不出啊.之后follow up了一下单机query存不下怎么办， 还问了service挂掉了怎么recover
+
+Algorithm: 2sum(LeetCode), no hashmap Web:1. What happens when entering 你需要登录以查看此链接. (send get request, DNS, load balancer, server, find static file or go into MVC and database interactions, send back result)2. Scalability. Now we have one server, one database, what if response time is slow? How to optimize? Database: Was going to ask database questions, then I said I’m not good at it, so he just asked am I willing to learn. Front-end: Asked me if I’m good at html and css, rating from 1 to 5, I said average, so 3.
+
+Find the minimum number of coins for a value
+
+
+
+////////////////////////////////////////////////////
+Airbnb： 1. mincost of flight from start to end if allowed at most k connections. 比如： A->B, 100, B->C, 100, A->C, 500. 如果k是1的话，起点终点是A，C的话，那A->B->C最好, 我只想到BFS的解法。而且这题给的input给的是string和数字的混合形式，用C++parse好麻烦
+2. Text justification
+3. Design key-value store
+4. project deep dive.
+
+Coursera： 1. Hangman, 可以搜github hangman看看相关的code, 最好自己写一下。这轮没准备，也没写好
+2. Text justification
+3. Sliding window minimum.
+
+Dropbox
+duplicate files，我诚实了一下，说这题我见过了，面试官让我说下思路，我说了下。然后出了log hit那题，一开始写的有错误，但是很快更正了，然后面试官又让写testcase，我写了几个，但是感觉没有写全，但是也想不出来了。然后followup说分布式系统怎么办，答lock和unlock，写了下伪代码，然后旁边一个shadow开始问我一堆问题，我说这种东西要放在master node上啥啥啥
+
+
+Front End Stuff
+http://david-chen-blog.logdown.com/posts/177766-how-forms-submit-when-pressing-enter
