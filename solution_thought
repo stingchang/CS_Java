@@ -42,9 +42,20 @@
     如果x =power(3,k), if(n==x) true; if(n<x) return false; x++;
 337 House Robber III
     每個node, 回傳int[2]包含[curMaxProfit(dontRobCurrent, cur+dontRobPrecious), dontRobCurrent]
+340 Longest Substring with At Most K Distinct Characters
+    一個linkedList紀錄 k距離包含的chars, 如果len=而且接下來的char沒遇過, 刪掉list最左邊的node
+    一個hashMap 紀錄當下char最後一次出現的位置, 如果接下來遇到的char遇過, 更新map中char的location,如果char沒遇過,放到map中並刪掉map中list head的key
+
 347 Top K Frequent Elements
     建一個HashMap來記錄每個element出現過的頻率, 一個array, 每個index i是一個set包含出現i次的元素們
     1 3 5 1 3 -> map(1:2, 3:2, 5:1); arr[(), (5, 3), (), (), ()]  time=o(n)
+380 Insert Delete GetRandom O(1)
+    1 hashMap and 1 arrayList, hashMap track where value is at,
+    when delete v, replace value in arrayList where v is at with last element in arrayList
+381 Insert Delete GetRandom O(1) - Duplicates allowed
+    arrayList<values> HashMap<val, LinkedHashSet<val's locations>>
+    Insert v: add location to map.get(v)
+    Remove v: position = map.get(v).iterator().next(), replace array[position] with last element and update map.get(last element in array)
 437 Path Sum III
     對於每個點. 檢查
     1. 當前的sum加上此點值是否為target, 如果是的話加到list, 繼續call他的左右節點
