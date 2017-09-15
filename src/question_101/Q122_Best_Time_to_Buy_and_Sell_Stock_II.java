@@ -1,6 +1,6 @@
 package question_101;
 
-public class Q121_Best_Time_to_Buy_and_Sell_Stock_II {
+public class Q122_Best_Time_to_Buy_and_Sell_Stock_II {
 	  public int maxProfit(int[] prices) {
 	        // if(prices == null) 
 	        //     return 0;
