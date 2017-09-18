@@ -24,7 +24,13 @@ public class Test {
 //
 //        boolean[] bArr = new boolean[10];
 //        System.out.println(Arrays.toString(bArr)+"\n");
-        toBaseNice();
+        String s1 = "b";
+        String s2 = "aaa";
+        System.out.println(s1 == s2);
+        char c = 'b';
+        System.out.println(Character.toUpperCase(c));
+        System.out.println(2^(1<<c-'a'));
+//        toBaseNice();
     }
 
     public static void toBaseNice(){
