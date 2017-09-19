@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Test {
     public static void main(String[] args){
@@ -31,6 +28,13 @@ public class Test {
         System.out.println(Character.toUpperCase(c));
         System.out.println(2^(1<<c-'a'));
 //        toBaseNice();
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("111");
+
+        Map<Integer, Integer> map = new HashMap<>();
+        map.re
+
     }
 
     public static void toBaseNice(){
