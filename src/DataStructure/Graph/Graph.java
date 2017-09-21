@@ -117,8 +117,8 @@ public class Graph {
             }
 
             while(!visiting.isEmpty()){
-                Node n = stack.getLast();
-                if()
+//                Node n = stack.getLast();
+//                if()
             }
         }
 
