@@ -13,7 +13,7 @@ public class ListTest {
         l3.add(3);
 //        System.out.print(l1);
         l1.addAll(l2);
-        System.out.print(l1.);
+//        System.out.print(l1.);
 //        System.out.print(l1);
     }
 }

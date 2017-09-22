@@ -1,6 +1,7 @@
 package regex;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
 
 public class RegexTest {
 
@@ -63,6 +64,10 @@ public class RegexTest {
         pattern = "\\d[^\\d]";
         line = "1w";
         System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+
+
+//        Matcher matcher = new Matcher("123");
+
     }
 }
 /*

@@ -1,6 +1,5 @@
-package question_671;
+package question_651;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 

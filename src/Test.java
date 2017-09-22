@@ -34,7 +34,10 @@ public class Test {
 
         Map<Integer, Integer> map = new HashMap<>();
 //        map.re
-
+        int x = 255;
+        System.out.println(Integer.toBinaryString(x));
+//        x>>=1;
+        System.out.println(Integer.toBinaryString(x<<8));
     }
 
     public static void toBaseNice(){
