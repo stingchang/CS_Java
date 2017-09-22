@@ -8,12 +8,17 @@ public class Q023_Merge_k_Sorted_Lists {
         if(lists ==null || lists.length == 0)
             return null;
 
-        PriorityQueue<ListNode> pq = new PriorityQueue<>(new Comparator<ListNode>(){
+        PriorityQueue<ListNode> pq = new PriorityQueue<>(
+                Comparator.comparingInt( (ListNode l1)->l1.val)
+                /*
+                             new Comparator<ListNode>(){
             @Override
             public int compare(ListNode n1, ListNode n2){
                 return n1.val - n2.val;
             }
-        });
+        }
+                 */
+        );
         for(ListNode n: lists){
             if(n!=null)
                 pq.offer(n);

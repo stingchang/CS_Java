@@ -38,6 +38,23 @@ public class Test {
         System.out.println(Integer.toBinaryString(x));
 //        x>>=1;
         System.out.println(Integer.toBinaryString(x<<8));
+
+        System.out.println("Hex decimal test");
+        String oct = "10";
+        System.out.println(oct+" : "+Integer.parseInt(oct,16));
+        oct = "16";
+        System.out.println(oct+" : "+Integer.parseInt(oct,16));
+        oct = "0";
+        System.out.println(oct+" : "+Integer.parseInt(oct,16));
+        oct = "-1";
+        System.out.println(oct+" : "+Integer.parseInt(oct,16));
+        oct = "-2";
+        System.out.println(oct+" : "+Integer.parseInt(oct,16));
+
+        System.out.println((1+1001)>>>1);
+
+        String a = "ababababab";
+        System.out.println(Arrays.toString(a.split("a")));
     }
 
     public static void toBaseNice(){
