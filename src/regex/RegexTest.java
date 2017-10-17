@@ -6,68 +6,76 @@ import java.util.regex.Matcher;
 public class RegexTest {
 
     public static void main(String[] args) {
-
-        String pattern = "";
-        // '' or '1' or '1-' or '+1' or '+1-'      : 1{0,1} | 1-
-        String p1 = "(^\\+?1-?)?";
-        // '(333)' or '333' or '333-'
-        String p2 = "([\\d]{3}-?|\\([\\d]{3}\\))-?";
-        // '333' or '333-'
-        String p3 = "[\\d]{3}-?";
-        // 3333
-        String p4 = "[\\d]{4}$";
-
-
-        pattern = p1 + p2 + p3 + p4;
-        boolean result = false;
-        String line = "";
-
-        line = "13333333333";
-        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
-        line = "+13333333333";
-        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
-        line = "+1-3333333333";
-        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
-        line = "+1(333)3333333";
-        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
-        line = "+1(333)-3333333";
-        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
-        line = "+1(333)-333-3333";
-        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
 //
-        System.out.println();
-
-
-        pattern = "...\\....\\....\\....";
-        line = "abc.cda.cad.123";
-        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
-
-
-        pattern = "[0-9]{2,}$";
-        line = "1";
-        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
-        line = "422";
-        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
-
-        pattern = "([0-9]+)(?:st|nd|rd|th)?";
-        line = "1st";
-        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
-        line = "2nd";
-        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
-        line = "3r";
-        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
-
-        pattern = "^((Mr)|(Mrs)|(Ms)|(Dr)|(Er))\\\\.[a-zA-Z]+";
-        line = "Mr.V.K. Doshi";
-        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
-
-        pattern = "\\d[^\\d]";
-        line = "1w";
-        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+//        String pattern = "";
+//        // '' or '1' or '1-' or '+1' or '+1-'      : 1{0,1} | 1-
+//        String p1 = "(^\\+?1-?)?";
+//        // '(333)' or '333' or '333-'
+//        String p2 = "([\\d]{3}-?|\\([\\d]{3}\\))-?";
+//        // '333' or '333-'
+//        String p3 = "[\\d]{3}-?";
+//        // 3333
+//        String p4 = "[\\d]{4}$";
+//
+//
+//        pattern = p1 + p2 + p3 + p4;
+//        boolean result = false;
+//        String line = "";
+//
+//        line = "13333333333";
+//        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+//        line = "+13333333333";
+//        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+//        line = "+1-3333333333";
+//        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+//        line = "+1(333)3333333";
+//        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+//        line = "+1(333)-3333333";
+//        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+//        line = "+1(333)-333-3333";
+//        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+////
+//        System.out.println();
+//
+//
+//        pattern = "...\\....\\....\\....";
+//        line = "abc.cda.cad.123";
+//        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+//
+//
+//        pattern = "[0-9]{2,}$";
+//        line = "1";
+//        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+//        line = "422";
+//        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+//
+//        pattern = "([0-9]+)(?:st|nd|rd|th)?";
+//        line = "1st";
+//        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+//        line = "2nd";
+//        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+//        line = "3r";
+//        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+//
+//        pattern = "^((Mr)|(Mrs)|(Ms)|(Dr)|(Er))\\\\.[a-zA-Z]+";
+//        line = "Mr.V.K. Doshi";
+//        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
+//
+//        pattern = "\\d[^\\d]";
+//        line = "1w";
+//        System.out.println(line + " matches " + pattern + " ? : " + line.matches(pattern) + "\n");
 
 
 //        Matcher matcher = new Matcher("123");
 
+        String t1 = "d((sd(sd)a(d";
+        String pattern = "(";
+        pattern = "[^(]*";
+        int index =t1.indexOf(pattern);
+        while(index>=0){
+            System.out.println("fount: "+pattern+" at "+index+" ");
+            index = t1.indexOf(pattern, index+1);
+        }
     }
 }
 /*

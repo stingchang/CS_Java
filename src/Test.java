@@ -55,6 +55,25 @@ public class Test {
 
         String a = "ababababab";
         System.out.println(Arrays.toString(a.split("a")));
+
+        Queue<Integer> minHeap = new PriorityQueue<>(3);
+        System.out.println("minHeap : "+minHeap);
+        minHeap.add(5);
+        System.out.println("minHeap : "+minHeap);
+        minHeap.add(2);
+        System.out.println("minHeap : "+minHeap);
+        minHeap.add(6);
+        System.out.println("minHeap : "+minHeap);
+        minHeap.add(5);
+        System.out.println("minHeap : "+minHeap);
+
+String s = "(123)";
+        String st = s.replaceAll("\\(","");
+        st = st.replaceAll("\\)","");
+        System.out.println(s+" => : "+st);
+
+        Random r = new Random();
+        System.out.println(r.nextInt(2));
     }
 
     public static void toBaseNice(){

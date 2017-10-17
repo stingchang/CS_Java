@@ -3,6 +3,7 @@ package question_201;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
+import java.util.Stack;
 
 public class Q227_Basic_Calculator_II {
     public int calculate(String s) {
@@ -47,7 +48,59 @@ public class Q227_Basic_Calculator_II {
         int result = q.calculate(test);
         System.out.println(result);
     }
+
+
+    /////////   Solutions ///////
+    /*
+        + : push nextNum
+        - : push nextNum*-1
+        * : push(pop * nextNum)
+        / : push(pop / nextNum)
+    */
+
+    public int calculate2(String s) {
+        if(s == null || s.length()==0) return 0;
+        s = s.replaceAll(" ", "");
+        Stack<Integer> stack = new Stack<>();
+
+        // step 1: add a sign at head, then string will be the format of "n pairs of'sign_num'"
+        if(Character.isDigit(s.charAt(0))) s = "+" + s;
+        // System.out.println(s);
+
+        int index = 0;
+        while(index<s.length()){
+            char sign = s.charAt(index);
+
+            int end = getEnd(s, index+1);
+            int nextNum = Integer.parseInt(s.substring(index+1, end));
+            index = end;
+            // System.out.println("next num: "+nextNum);
+            switch(sign){
+                case '+': stack.push(nextNum);
+                    break;
+                case '-': stack.push(nextNum*-1);
+                    break;
+                case '*': stack.push(stack.pop() * nextNum);
+                    break;
+                case '/': stack.push(stack.pop() / nextNum);
+                    break;
+            }
+        }
+
+        int base = stack.pop();
+        while(stack.size()>0) base+=stack.pop();
+        return base;
+    }
+
+    // return index of next non digit location
+    public int getEnd(String s, int index){
+        while(index<=s.length()-1 && Character.isDigit(s.charAt(index))) index++;
+        return index;
+    }
 }
+
+
+
 /*
 1. remove all spaces
 2. split string by +-
